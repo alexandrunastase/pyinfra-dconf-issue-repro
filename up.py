@@ -7,6 +7,15 @@ server.shell(
     sudo=True,
 )
 
+
+server.shell(
+    commands='''echo "\"['<Primary>q']\"" | sudo tee keyboard.txt ''',
+)
+
+server.shell(
+    commands='''echo "['<Primary>q']"''',
+)
+
 # Same result when escaping the quotes
 # server.shell(
 #     name='dconf write test',
