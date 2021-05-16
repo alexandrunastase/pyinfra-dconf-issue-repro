@@ -3,13 +3,12 @@ from pyinfra.operations import server
 
 server.shell(
     name='dconf write test',
-    commands=''' dconf write /org/gnome/desktop/wm/keybindings/close \\\"['<Primary>q']\\\" ''',
+    commands=''' dconf write /org/gnome/desktop/wm/keybindings/close "\\\"['<Primary>q']\\\"" ''',
     sudo=True,
 )
 
-
 server.shell(
-    commands='''echo "\\\"['<Primary>q']\\\"" | tee keyboard.txt ''',
+    commands=''' echo "\\\"['<Primary>q']\\\"" | sudo tee keyboard.txt''',
 )
 
 # server.shell(
